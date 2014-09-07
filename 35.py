@@ -2,6 +2,16 @@
 
 from collections import deque
 
+def esPrimo(n):
+    n = abs(int(n))
+    if n < 2:  return False
+    if n % 2 == 0: return False
+    if not n & 1: return False
+    for x in range(3, int(n**0.5)+1, 2):
+        if n % x == 0: return False
+    return True
+
+
 def buscar_permutaciones(numero):
     d = deque(str(numero))
 
@@ -22,32 +32,16 @@ def buscar_permutaciones(numero):
 def buscar_primos(tope):
     primos = [2, ]
 
-    x = 1
-    while True:
-        no_primo = 0
-        x += 2
-
-        if x > tope:
-            break
-
-        for n in primos[1:]:
-            #if n > x**0.5 + 10:  # optimizacion
-            #    break
-
-            if x % n == 0:
-                no_primo = 1
-                break
-
-        if no_primo == 0:
-            primos.append(x)
+    for n in range(3, tope, 2):
+        if esPrimo(n):
+            primos.append(n)
 
     return primos
 
 
 print "Buscando primos"
-primos = buscar_primos(1000)
-print primos
 #primos = buscar_primos(100)
+primos = buscar_primos(1000000)
 
 print "Buscando circulares"
 circulares = []
