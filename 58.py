@@ -58,7 +58,7 @@ def formar_matriz(max_x, max_y):
     return matriz
 
 
-tope = 7
+tope = 12001
 while True:
     matriz = formar_matriz(tope, tope) # estetica
 
@@ -77,8 +77,9 @@ while True:
     if ratio < 0.1:
         break
 
-    tope += 2 #siempre impares
+    tope += 1000 #siempre impares
 
 print matriz
+print tope
 
 #print sum(matriz.diagonal()) + sum(flipud(matriz).diagonal()) - 1
