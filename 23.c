@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "abundantes.h"
 
-#define TOPE 2562
+//#define TOPE 2562
+#define TOPE 6965
 
 int noEsSumaAbundantes(int numero) {
     int i, j, suma;
@@ -13,13 +14,13 @@ int noEsSumaAbundantes(int numero) {
             suma = abundantes[i] + abundantes[j];
 
             if ( suma == numero ) {
-                //printf("%d = %d + %d\n", numero, abundantes[i], abundantes[j]);
+                printf("%d = %d + %d\n", numero, abundantes[i], abundantes[j]);
                 return 0; }
             else if ( suma > numero ) { break; }
         }
     }
 
-    //printf("%d!\n", numero);
+    printf("%d!\n", numero);
     return 1;
 }
 
